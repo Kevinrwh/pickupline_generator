@@ -17,4 +17,4 @@ I will be creating an application for iOS that allows one to enter a topic or na
 - Frontend Developer: Kevin Ramos
 
 ## Trello Board
-[Trello Board]: (https://trello.com/b/PJ3LMcaw/tinder-pickup-line-generation)
+[Trello Board] (https://trello.com/b/PJ3LMcaw/tinder-pickup-line-generation)
