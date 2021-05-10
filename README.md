@@ -10,9 +10,11 @@ I hope to provide a dedicated solution to your icebreaker-related woes with this
 I will be creating an application for iOS that allows one to enter a topic or name to search for pickup lines. The user will then be presented with a list of pickup lines that can be used. As a reach goal, I want to be able to determine a method to 'rank' these pickup lines for measures of success. 
 
 ## Roles
-### Project Manager: Kevin Ramos
-### Backend Developer: Kevin Ramos
-### Frontend Developer: Kevin Ramos
+- Project Manager: Kevin Ramos
+- UI Designer: Kevin Ramos
+- UX Researcher: Kevin Ramos
+- Backend Developer: Kevin Ramos
+- Frontend Developer: Kevin Ramos
 
 ## Trello Board
 [Trello Board]: (https://trello.com/b/PJ3LMcaw/tinder-pickup-line-generation)
