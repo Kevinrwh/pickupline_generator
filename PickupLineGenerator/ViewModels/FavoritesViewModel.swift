@@ -1,5 +1,4 @@
 import Foundation
-import UIKit
 
 @MainActor
 class FavoritesViewModel: ObservableObject {
@@ -11,13 +10,6 @@ class FavoritesViewModel: ObservableObject {
 
     init(favoritesService: FavoritesService) {
         self.favoritesService = favoritesService
-    }
-
-    func delete(at offsets: IndexSet) {
-        let sorted = favorites
-        offsets.forEach { index in
-            favoritesService.remove(id: sorted[index].id)
-        }
     }
 
     func removeFavorite(_ line: PickupLine) {

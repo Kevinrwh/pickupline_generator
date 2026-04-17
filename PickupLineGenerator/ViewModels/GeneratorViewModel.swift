@@ -1,5 +1,4 @@
 import Foundation
-import UIKit
 
 @MainActor
 class GeneratorViewModel: ObservableObject {
@@ -62,7 +61,4 @@ class GeneratorViewModel: ObservableObject {
         favoritesService.isFavorite(line)
     }
 
-    func copyToClipboard(_ line: PickupLine) {
-        UIPasteboard.general.string = line.text
-    }
 }

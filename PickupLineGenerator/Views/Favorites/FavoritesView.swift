@@ -28,6 +28,7 @@ struct FavoritesView: View {
                             }
                         }
                         .padding()
+                        .animation(.default, value: viewModel.favorites.map(\.id))
                     }
                     .background { ThemedBackground() }
                 }

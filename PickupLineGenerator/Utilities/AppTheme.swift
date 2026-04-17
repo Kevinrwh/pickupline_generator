@@ -18,7 +18,6 @@ enum AppTheme {
     // MARK: - Colors
 
     static let accent = Color(hex: 0xFD267A)
-    static let accentSecondary = Color(hex: 0xFF6036)
 
     // MARK: - Background
 
