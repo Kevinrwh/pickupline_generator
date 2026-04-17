@@ -17,14 +17,10 @@ struct FavoritesView: View {
                     ScrollView {
                         LazyVStack(spacing: 12) {
                             ForEach(viewModel.favorites) { line in
-                                FavoriteRowView(line: line)
-                                    .contextMenu {
-                                        Button(role: .destructive) {
-                                            viewModel.removeFavorite(line)
-                                        } label: {
-                                            Label("Remove", systemImage: "heart.slash")
-                                        }
-                                    }
+                                FavoriteRowView(
+                                    line: line,
+                                    onDelete: { viewModel.removeFavorite(line) }
+                                )
                             }
                         }
                         .padding()
