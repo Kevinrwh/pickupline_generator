@@ -20,8 +20,8 @@ class FavoritesViewModel: ObservableObject {
         }
     }
 
-    func copyToClipboard(_ line: PickupLine) {
-        UIPasteboard.general.string = line.text
+    func removeFavorite(_ line: PickupLine) {
+        favoritesService.remove(id: line.id)
     }
 
     func refreshFavorites() {

@@ -7,7 +7,7 @@ struct ContentView: View {
         TabView {
             GeneratorView(favoritesService: favoritesService)
                 .tabItem {
-                    Label("Generate", systemImage: "wand.and.stars")
+                    Label("Generate", systemImage: "flame.fill")
                 }
 
             FavoritesView(favoritesService: favoritesService)
@@ -20,6 +20,7 @@ struct ContentView: View {
                     Label("Settings", systemImage: "gear")
                 }
         }
+        .tint(AppTheme.accent)
     }
 }
 

@@ -2,44 +2,44 @@ import SwiftUI
 
 struct FavoriteRowView: View {
     let line: PickupLine
-    let onCopy: () -> Void
-
-    @State private var copied = false
 
     var body: some View {
-        HStack(alignment: .top, spacing: 12) {
-            VStack(alignment: .leading, spacing: 4) {
-                Text(line.text)
-                    .multilineTextAlignment(.leading)
-                    .fixedSize(horizontal: false, vertical: true)
-                Text(line.topic.capitalized)
-                    .font(.caption)
-                    .foregroundStyle(.secondary)
-            }
-            .frame(maxWidth: .infinity, alignment: .leading)
+        VStack(alignment: .leading, spacing: 12) {
+            Text(line.text)
+                .font(.body)
+                .multilineTextAlignment(.leading)
+                .fixedSize(horizontal: false, vertical: true)
 
-            Button {
-                onCopy()
-                withAnimation { copied = true }
-                Task {
-                    try? await Task.sleep(for: .seconds(1.5))
-                    withAnimation { copied = false }
+            HStack {
+                Text(line.topic.capitalized)
+                    .font(.caption.weight(.medium))
+                    .foregroundStyle(AppTheme.accent)
+                    .padding(.horizontal, 10)
+                    .padding(.vertical, 4)
+                    .background(AppTheme.subtleGradient)
+                    .clipShape(Capsule())
+
+                Spacer()
+
+                ShareLink(item: line.text) {
+                    Image(systemName: "square.and.arrow.up")
+                        .font(.subheadline)
+                        .foregroundStyle(.secondary)
                 }
-            } label: {
-                Image(systemName: copied ? "checkmark" : "doc.on.doc")
-                    .foregroundStyle(copied ? .green : .secondary)
+                .buttonStyle(.borderless)
             }
-            .buttonStyle(.borderless)
         }
-        .padding(.vertical, 4)
+        .padding()
+        .background(.background)
+        .clipShape(RoundedRectangle(cornerRadius: AppTheme.cardCornerRadius))
+        .shadow(color: .black.opacity(0.06), radius: AppTheme.cardShadowRadius, y: AppTheme.cardShadowY)
     }
 }
 
 #Preview {
-    List {
-        FavoriteRowView(
-            line: PickupLine(text: "Are you a black hole? Because you just sucked me in.", topic: "astronomy"),
-            onCopy: {}
-        )
-    }
+    FavoriteRowView(
+        line: PickupLine(text: "Are you a black hole? Because you just sucked me in.", topic: "astronomy")
+    )
+    .padding()
+    .background(Color(.systemGroupedBackground))
 }

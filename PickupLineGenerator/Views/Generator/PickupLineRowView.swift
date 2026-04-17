@@ -3,56 +3,53 @@ import SwiftUI
 struct PickupLineRowView: View {
     let line: PickupLine
     let isFavorite: Bool
-    let onCopy: () -> Void
     let onToggleFavorite: () -> Void
 
-    @State private var copied = false
-
     var body: some View {
-        HStack(alignment: .top, spacing: 12) {
+        VStack(alignment: .leading, spacing: 12) {
             Text(line.text)
+                .font(.body)
                 .multilineTextAlignment(.leading)
-                .frame(maxWidth: .infinity, alignment: .leading)
                 .fixedSize(horizontal: false, vertical: true)
 
-            VStack(spacing: 8) {
-                Button {
-                    onCopy()
-                    withAnimation { copied = true }
-                    Task {
-                        try? await Task.sleep(for: .seconds(1.5))
-                        withAnimation { copied = false }
-                    }
-                } label: {
-                    Image(systemName: copied ? "checkmark" : "doc.on.doc")
-                        .foregroundStyle(copied ? .green : .secondary)
+            HStack {
+                Spacer()
+
+                ShareLink(item: line.text) {
+                    Image(systemName: "square.and.arrow.up")
+                        .font(.subheadline)
+                        .foregroundStyle(.secondary)
                 }
                 .buttonStyle(.borderless)
 
                 Button(action: onToggleFavorite) {
                     Image(systemName: isFavorite ? "heart.fill" : "heart")
-                        .foregroundStyle(isFavorite ? .red : .secondary)
+                        .font(.subheadline)
+                        .foregroundStyle(isFavorite ? AppTheme.accent : .secondary)
                 }
                 .buttonStyle(.borderless)
             }
         }
-        .padding(.vertical, 4)
+        .padding()
+        .background(.background)
+        .clipShape(RoundedRectangle(cornerRadius: AppTheme.cardCornerRadius))
+        .shadow(color: .black.opacity(0.06), radius: AppTheme.cardShadowRadius, y: AppTheme.cardShadowY)
     }
 }
 
 #Preview {
-    List {
+    VStack(spacing: 12) {
         PickupLineRowView(
             line: PickupLine(text: "Are you a black hole? Because you just sucked me in.", topic: "astronomy"),
             isFavorite: false,
-            onCopy: {},
             onToggleFavorite: {}
         )
         PickupLineRowView(
             line: PickupLine(text: "Are you made of copper and tellurium? Because you're CuTe.", topic: "chemistry"),
             isFavorite: true,
-            onCopy: {},
             onToggleFavorite: {}
         )
     }
+    .padding()
+    .background(Color(.systemGroupedBackground))
 }
