@@ -1,0 +1,39 @@
+name: PickupLineGenerator
+options:
+  bundleIdPrefix: com.kevinramos
+  deploymentTarget:
+    iOS: "16.0"
+  xcodeVersion: "15"
+
+settings:
+  base:
+    SWIFT_VERSION: "5.9"
+    IPHONEOS_DEPLOYMENT_TARGET: "16.0"
+
+targets:
+  PickupLineGenerator:
+    type: application
+    platform: iOS
+    deploymentTarget: "16.0"
+    sources:
+      - path: PickupLineGenerator
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.kevinramos.PickupLineGenerator
+        INFOPLIST_FILE: PickupLineGenerator/Info.plist
+        CODE_SIGN_STYLE: Automatic
+        DEVELOPMENT_TEAM: ""
+    scheme:
+      testTargets:
+        - PickupLineGeneratorTests
+
+  PickupLineGeneratorTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - path: PickupLineGeneratorTests
+    dependencies:
+      - target: PickupLineGenerator
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.kevinramos.PickupLineGeneratorTests

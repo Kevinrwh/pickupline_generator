@@ -1,40 +1,64 @@
-# Introduction
-Hello there!
+# Pickup Line Generator
 
-This is a personal project made by Kevin Ramos.
+An iOS app that generates pickup lines using the Claude AI API. Enter a topic or name, get 5 creative lines back, save your favorites, and copy them straight to the clipboard.
 
-# Product Vision
-Have you ever had trouble coming up with a unique pickup line to separate you from the many others on dating websites? 
-I hope to provide a dedicated solution to your icebreaker-related woes with this iOS app. Who knows - maybe one day we can integrate this in Tinder itself!
+## Features
 
-I will be creating an application for iOS that allows one to enter a topic or name to search for pickup lines. The user will then be presented with a list of pickup lines that can be used. As a reach goal, I want to be able to determine a method to 'rank' these pickup lines for measures of success. 
+- **AI-generated lines** — powered by Claude (claude-haiku-4-5-20251001)
+- **Save favorites** — persisted locally across sessions
+- **Copy to clipboard** — one tap to paste into any dating app
+- **Secure key storage** — your Anthropic API key lives in the iOS Keychain
 
-# Roles
-- Project Manager: Kevin Ramos
-- UI Designer: Kevin Ramos
-- UX Researcher: Kevin Ramos
-- Backend Developer: Kevin Ramos
-- Frontend Developer: Kevin Ramos
+## Requirements
 
-### Trello Board
-- [Trello Board (Backlogs and Requirements)](https://trello.com/b/PJ3LMcaw/tinder-pickup-line-generation)
+- Xcode 15+
+- iOS 16+ device or simulator
+- An [Anthropic API key](https://console.anthropic.com/)
 
-# Sprint 1 (May 10)
-- [Trello Board (Backlogs and Requirements)](https://trello.com/b/PJ3LMcaw/tinder-pickup-line-generation)
-- [Velocity Chart]
-- [Burndown Chart]
-- [System Architecture]
-- [Source Code]
+## Getting Started
 
-## Task Allocation
-- Kevin Ramos: 
+### 1. Generate the Xcode project
 
-# Sprint 2 (May 17)
-- [Trello Board (Backlogs and Requirements)](https://trello.com/b/PJ3LMcaw/tinder-pickup-line-generation)
-- [Velocity Chart]
-- [Burndown Chart]
-- [System Architecture]
-- [Source Code]
+Install [xcodegen](https://github.com/yonaskolb/XcodeGen) if you haven't already:
 
-## Task Allocation
-- Kevin Ramos: 
+```bash
+brew install xcodegen
+```
+
+Then from the repo root:
+
+```bash
+xcodegen generate
+```
+
+This creates `PickupLineGenerator.xcodeproj`.
+
+### 2. Open in Xcode
+
+```bash
+open PickupLineGenerator.xcodeproj
+```
+
+### 3. Run the app
+
+Select a simulator (or your device) and press **Cmd+R**.
+
+On first launch, go to the **Settings** tab and paste in your Anthropic API key. It's stored securely in the Keychain and never leaves your device.
+
+## Project Structure
+
+```
+PickupLineGenerator/
+├── Models/          # PickupLine, Claude API request/response structs
+├── Services/        # KeychainService, ClaudeAPIService, FavoritesService
+├── ViewModels/      # GeneratorViewModel, FavoritesViewModel, SettingsViewModel
+├── Views/
+│   ├── Generator/   # Main generation screen
+│   ├── Favorites/   # Saved favorites screen
+│   └── Settings/    # API key management
+└── Utilities/       # AppError
+```
+
+## Development
+
+After adding new `.swift` files, re-run `xcodegen generate` to include them in the project — no need to manually add files in Xcode.
