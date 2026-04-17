@@ -74,7 +74,7 @@ struct FavoritesViewModelTests {
         #expect(vm.favorites.last?.text == "Older")
     }
 
-    @Test @MainActor func deleteRemovesFavorite() {
+    @Test @MainActor func removeFavorite() {
         let defaults = UserDefaults(suiteName: "test.\(UUID().uuidString)")!
         let favoritesService = FavoritesService(defaults: defaults)
 
@@ -85,8 +85,9 @@ struct FavoritesViewModelTests {
         favoritesService.add(line2)
 
         let vm = FavoritesViewModel(favoritesService: favoritesService)
-        vm.delete(at: IndexSet(integer: 0))
+        vm.removeFavorite(line2)
 
         #expect(favoritesService.favorites.count == 1)
+        #expect(favoritesService.favorites.first?.text == "Line 1")
     }
 }

@@ -1,5 +1,4 @@
 import Foundation
-import UIKit
 
 @MainActor
 class FavoritesViewModel: ObservableObject {
@@ -13,15 +12,8 @@ class FavoritesViewModel: ObservableObject {
         self.favoritesService = favoritesService
     }
 
-    func delete(at offsets: IndexSet) {
-        let sorted = favorites
-        offsets.forEach { index in
-            favoritesService.remove(id: sorted[index].id)
-        }
-    }
-
-    func copyToClipboard(_ line: PickupLine) {
-        UIPasteboard.general.string = line.text
+    func removeFavorite(_ line: PickupLine) {
+        favoritesService.remove(id: line.id)
     }
 
     func refreshFavorites() {

@@ -1,9 +1,9 @@
 import Foundation
-import UIKit
 
 @MainActor
 class GeneratorViewModel: ObservableObject {
     @Published var topic: String = ""
+    @Published var rizzLevel: RizzLevel = .smooth
     @Published var lines: [PickupLine] = []
     @Published var isLoading: Bool = false
     @Published var error: AppError?
@@ -38,7 +38,7 @@ class GeneratorViewModel: ObservableObject {
 
         Task {
             do {
-                let rawLines = try await apiService.generatePickupLines(topic: trimmed, apiKey: apiKey)
+                let rawLines = try await apiService.generatePickupLines(topic: trimmed, apiKey: apiKey, rizzLevel: rizzLevel)
                 lines = rawLines.map { PickupLine(text: $0, topic: trimmed) }
             } catch let appError as AppError {
                 error = appError
@@ -61,7 +61,4 @@ class GeneratorViewModel: ObservableObject {
         favoritesService.isFavorite(line)
     }
 
-    func copyToClipboard(_ line: PickupLine) {
-        UIPasteboard.general.string = line.text
-    }
 }

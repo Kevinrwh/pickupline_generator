@@ -12,43 +12,43 @@ struct FavoritesView: View {
         NavigationStack {
             Group {
                 if viewModel.favorites.isEmpty {
-                    VStack(spacing: 12) {
-                        Image(systemName: "heart.slash")
-                            .font(.system(size: 48))
-                            .foregroundStyle(.secondary)
-                        Text("No Favorites Yet")
-                            .font(.title3)
-                            .fontWeight(.semibold)
-                        Text("Generate lines and tap ♥ to save them.")
-                            .font(.subheadline)
-                            .foregroundStyle(.secondary)
-                    }
-                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    emptyState
                 } else {
-                    List {
-                        ForEach(viewModel.favorites) { line in
-                            FavoriteRowView(
-                                line: line,
-                                onCopy: { viewModel.copyToClipboard(line) }
-                            )
+                    ScrollView {
+                        LazyVStack(spacing: 12) {
+                            ForEach(viewModel.favorites) { line in
+                                FavoriteRowView(
+                                    line: line,
+                                    onDelete: { viewModel.removeFavorite(line) }
+                                )
+                            }
                         }
-                        .onDelete { viewModel.delete(at: $0) }
+                        .padding()
+                        .animation(.default, value: viewModel.favorites.map(\.id))
                     }
-                    .listStyle(.plain)
-                    .animation(.default, value: viewModel.favorites.map(\.id))
+                    .background { ThemedBackground() }
                 }
             }
             .navigationTitle("Favorites")
-            .toolbar {
-                if !viewModel.favorites.isEmpty {
-                    EditButton()
-                }
-            }
         }
         .onReceive(favoritesService.$favorites) { _ in
-            // Trigger view update when favorites change from GeneratorView
             viewModel.refreshFavorites()
         }
+    }
+
+    private var emptyState: some View {
+        VStack(spacing: 16) {
+            Image(systemName: "heart.slash.fill")
+                .font(.system(size: 56))
+                .foregroundStyle(AppTheme.primaryGradient)
+            Text("No Favorites Yet")
+                .font(.title2.weight(.bold))
+            Text("Generate lines and tap ♥ to save them.")
+                .font(.subheadline)
+                .foregroundStyle(.secondary)
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background { ThemedBackground() }
     }
 }
 

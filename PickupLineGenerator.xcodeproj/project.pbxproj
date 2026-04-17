@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A5C189D2F91C0B600BD8F87 /* RizzLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5C189C2F91C0B600BD8F87 /* RizzLevel.swift */; };
+		0A5C189F2F91C34F00BD8F87 /* AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5C189E2F91C34F00BD8F87 /* AppTheme.swift */; };
 		162A0C67D3016F7076F09B2B /* FavoritesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5693DBD8BCC227B8C51E044E /* FavoritesViewModel.swift */; };
 		2BADD20BF5266DA396239B0B /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F234C48B9411108C154302 /* AppError.swift */; };
 		2C7EF41CA7084C88210A8125 /* ClaudeAPIServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8128EE600F2F9DF84F3DE8F4 /* ClaudeAPIServiceTests.swift */; };
@@ -39,6 +41,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0A5C189C2F91C0B600BD8F87 /* RizzLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RizzLevel.swift; sourceTree = "<group>"; };
+		0A5C189E2F91C34F00BD8F87 /* AppTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTheme.swift; sourceTree = "<group>"; };
 		1984107280742BD3D1BEF8D1 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		1B5C17BEE5EDB67997234527 /* GeneratorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratorView.swift; sourceTree = "<group>"; };
 		36C834E2DD0410DFD88AB274 /* PickupLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickupLine.swift; sourceTree = "<group>"; };
@@ -85,6 +89,7 @@
 			isa = PBXGroup;
 			children = (
 				D2F234C48B9411108C154302 /* AppError.swift */,
+				0A5C189E2F91C34F00BD8F87 /* AppTheme.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -157,6 +162,7 @@
 			children = (
 				ABCD5C340891EDE3ED6CF99E /* ClaudeModels.swift */,
 				36C834E2DD0410DFD88AB274 /* PickupLine.swift */,
+				0A5C189C2F91C0B600BD8F87 /* RizzLevel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -261,6 +267,7 @@
 				2BADD20BF5266DA396239B0B /* AppError.swift in Sources */,
 				DBEA95A6FB5C738FDD83E297 /* ClaudeAPIService.swift in Sources */,
 				73F2508E46F5A1F1A66F2B5D /* ClaudeModels.swift in Sources */,
+				0A5C189F2F91C34F00BD8F87 /* AppTheme.swift in Sources */,
 				E85D1663B8CF1FC33582E66E /* ContentView.swift in Sources */,
 				682833E5D979D9BCA00FDD56 /* FavoriteRowView.swift in Sources */,
 				8607065D6BDEB4A85CFECD75 /* FavoritesService.swift in Sources */,
@@ -268,6 +275,7 @@
 				162A0C67D3016F7076F09B2B /* FavoritesViewModel.swift in Sources */,
 				2ECC345A1211545738A18C96 /* GeneratorView.swift in Sources */,
 				DB9B716D7CBCADA90589C87B /* GeneratorViewModel.swift in Sources */,
+				0A5C189D2F91C0B600BD8F87 /* RizzLevel.swift in Sources */,
 				A846C816340705EE787FF427 /* KeychainService.swift in Sources */,
 				49CA3738FAAEE0D9398107B2 /* PickupLine.swift in Sources */,
 				EBDFC64CC3FD4C18280D12C5 /* PickupLineGeneratorApp.swift in Sources */,

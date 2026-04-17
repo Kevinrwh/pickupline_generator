@@ -3,12 +3,19 @@ import Foundation
 actor ClaudeAPIService {
     private let endpoint = URL(string: "https://api.anthropic.com/v1/messages")!
 
-    func generatePickupLines(topic: String, apiKey: String) async throws -> [String] {
-        let prompt = "Generate 5 creative and clever pickup lines about \(topic). Return only the pickup lines, one per line, numbered 1-5."
+    func generatePickupLines(topic: String, apiKey: String, rizzLevel: RizzLevel = .smooth) async throws -> [String] {
+        let systemPrompt = """
+            \(rizzLevel.systemDescription) \
+            You never use overused lines like "Are you a magician?" or "Did it hurt when you fell from heaven?" \
+            Every line should feel fresh and original.
+            """
 
-        let requestBody = ClaudeRequest(messages: [
-            ClaudeMessage(role: "user", content: prompt)
-        ])
+        let prompt = "Give me 5 pickup lines about \(topic). Numbered 1-5, one per line, nothing else."
+
+        let requestBody = ClaudeRequest(
+            system: systemPrompt,
+            messages: [ClaudeMessage(role: "user", content: prompt)]
+        )
 
         var request = URLRequest(url: endpoint)
         request.httpMethod = "POST"
