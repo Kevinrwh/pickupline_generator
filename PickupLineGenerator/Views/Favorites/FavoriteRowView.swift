@@ -5,24 +5,21 @@ struct FavoriteRowView: View {
     let onDelete: () -> Void
 
     @State private var offset: CGFloat = 0
-    @State private var showDelete = false
 
-    private let deleteThreshold: CGFloat = -80
+    private let revealThreshold: CGFloat = -80
+    private let deleteThreshold: CGFloat = -200
 
     var body: some View {
         ZStack(alignment: .trailing) {
             // Delete background
-            if showDelete {
-                HStack {
-                    Spacer()
-                    Button(action: onDelete) {
-                        Image(systemName: "trash.fill")
-                            .foregroundStyle(.white)
-                            .frame(width: 60, height: 60)
-                    }
+            RoundedRectangle(cornerRadius: AppTheme.cardCornerRadius)
+                .fill(Color.red)
+                .overlay(alignment: .trailing) {
+                    Image(systemName: "trash.fill")
+                        .font(.title3)
+                        .foregroundStyle(.white)
+                        .padding(.trailing, 24)
                 }
-                .padding(.trailing, 8)
-            }
 
             // Card content
             cardContent
@@ -35,17 +32,46 @@ struct FavoriteRowView: View {
                             }
                         }
                         .onEnded { value in
-                            withAnimation(.easeOut(duration: 0.2)) {
-                                if value.translation.width < deleteThreshold {
-                                    showDelete = true
-                                    offset = deleteThreshold
-                                } else {
-                                    showDelete = false
+                            if value.translation.width < deleteThreshold {
+                                // Full swipe — delete
+                                withAnimation(.easeOut(duration: 0.2)) {
+                                    offset = -500
+                                }
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                                    onDelete()
+                                }
+                            } else if value.translation.width < revealThreshold {
+                                // Partial swipe — reveal delete button
+                                withAnimation(.easeOut(duration: 0.2)) {
+                                    offset = revealThreshold
+                                }
+                            } else {
+                                // Snap back
+                                withAnimation(.easeOut(duration: 0.2)) {
                                     offset = 0
                                 }
                             }
                         }
                 )
+                .onTapGesture {
+                    // Tap to dismiss if revealed
+                    if offset < 0 {
+                        withAnimation(.easeOut(duration: 0.2)) {
+                            offset = 0
+                        }
+                    }
+                }
+        }
+        .onTapGesture {
+            // Tap red area to delete when revealed
+            if offset < 0 {
+                withAnimation(.easeOut(duration: 0.2)) {
+                    offset = -500
+                }
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                    onDelete()
+                }
+            }
         }
     }
 
