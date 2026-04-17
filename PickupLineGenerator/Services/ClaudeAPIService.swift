@@ -40,7 +40,7 @@ actor ClaudeAPIService {
         return lines
     }
 
-    private func parseLines(from text: String) -> [String] {
+    func parseLines(from text: String) -> [String] {
         text
             .components(separatedBy: .newlines)
             .map { line in

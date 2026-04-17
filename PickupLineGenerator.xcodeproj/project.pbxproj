@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		162A0C67D3016F7076F09B2B /* FavoritesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5693DBD8BCC227B8C51E044E /* FavoritesViewModel.swift */; };
 		2BADD20BF5266DA396239B0B /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F234C48B9411108C154302 /* AppError.swift */; };
+		2C7EF41CA7084C88210A8125 /* ClaudeAPIServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8128EE600F2F9DF84F3DE8F4 /* ClaudeAPIServiceTests.swift */; };
 		2ECC345A1211545738A18C96 /* GeneratorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5C17BEE5EDB67997234527 /* GeneratorView.swift */; };
 		300A40BD9F6FD5F2A9F8838F /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8CFB5AA1968731ADD403FD4 /* FavoritesView.swift */; };
 		49CA3738FAAEE0D9398107B2 /* PickupLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C834E2DD0410DFD88AB274 /* PickupLine.swift */; };
@@ -17,12 +18,14 @@
 		73F2508E46F5A1F1A66F2B5D /* ClaudeModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABCD5C340891EDE3ED6CF99E /* ClaudeModels.swift */; };
 		8607065D6BDEB4A85CFECD75 /* FavoritesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8E79329A47C3D41AE5D49A /* FavoritesService.swift */; };
 		A846C816340705EE787FF427 /* KeychainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C957FAAB8D28FF44BDFB2691 /* KeychainService.swift */; };
+		AD94913506E6AF5AE6D15424 /* ViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D7795A3B4843BF3CF6DDF5 /* ViewModelTests.swift */; };
 		D70567E5081D9B9D8CD89A89 /* PickupLineRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA821292D65B0A33B68934CF /* PickupLineRowView.swift */; };
 		DACB0E44737A439C3C67F1E4 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1984107280742BD3D1BEF8D1 /* SettingsView.swift */; };
 		DB9B716D7CBCADA90589C87B /* GeneratorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5AD5786E140C9231F8F41B /* GeneratorViewModel.swift */; };
 		DBEA95A6FB5C738FDD83E297 /* ClaudeAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4978865E6373A9F5081ACC5 /* ClaudeAPIService.swift */; };
 		E85D1663B8CF1FC33582E66E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82ABDDB08B151D057D21394B /* ContentView.swift */; };
 		EBDFC64CC3FD4C18280D12C5 /* PickupLineGeneratorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A518193C2B0B36D957AC44EA /* PickupLineGeneratorApp.swift */; };
+		FB42730185E8E302781587E0 /* FavoritesServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52F6E8F5EED053F29AF8C2D /* FavoritesServiceTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,11 +45,14 @@
 		5693DBD8BCC227B8C51E044E /* FavoritesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewModel.swift; sourceTree = "<group>"; };
 		5E5AD5786E140C9231F8F41B /* GeneratorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratorViewModel.swift; sourceTree = "<group>"; };
 		809A75011FFABCEA1A2EBB4A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		8128EE600F2F9DF84F3DE8F4 /* ClaudeAPIServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClaudeAPIServiceTests.swift; sourceTree = "<group>"; };
 		82ABDDB08B151D057D21394B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		8C8E79329A47C3D41AE5D49A /* FavoritesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesService.swift; sourceTree = "<group>"; };
+		A1D7795A3B4843BF3CF6DDF5 /* ViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelTests.swift; sourceTree = "<group>"; };
 		A518193C2B0B36D957AC44EA /* PickupLineGeneratorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickupLineGeneratorApp.swift; sourceTree = "<group>"; };
 		ABCD5C340891EDE3ED6CF99E /* ClaudeModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClaudeModels.swift; sourceTree = "<group>"; };
 		ADB438D5A362ADCE5A3ED685 /* FavoriteRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteRowView.swift; sourceTree = "<group>"; };
+		B52F6E8F5EED053F29AF8C2D /* FavoritesServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesServiceTests.swift; sourceTree = "<group>"; };
 		B55DF6DCBE97862FAE7C55E6 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		C957FAAB8D28FF44BDFB2691 /* KeychainService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainService.swift; sourceTree = "<group>"; };
 		D2D562F8F603A3E5DF3F2284 /* PickupLineGenerator.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = PickupLineGenerator.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -86,6 +92,9 @@
 		3E5FC52D1B8D759673ABE12C /* PickupLineGeneratorTests */ = {
 			isa = PBXGroup;
 			children = (
+				8128EE600F2F9DF84F3DE8F4 /* ClaudeAPIServiceTests.swift */,
+				B52F6E8F5EED053F29AF8C2D /* FavoritesServiceTests.swift */,
+				A1D7795A3B4843BF3CF6DDF5 /* ViewModelTests.swift */,
 			);
 			path = PickupLineGeneratorTests;
 			sourceTree = "<group>";
@@ -272,6 +281,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C7EF41CA7084C88210A8125 /* ClaudeAPIServiceTests.swift in Sources */,
+				FB42730185E8E302781587E0 /* FavoritesServiceTests.swift in Sources */,
+				AD94913506E6AF5AE6D15424 /* ViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -353,6 +365,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -444,6 +457,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
